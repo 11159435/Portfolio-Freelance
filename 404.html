@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Помилка 404</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-image: url('forest.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav .menu {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    nav .menu a,
+    .dropdown-toggle {
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 18px;
+      margin: 0 6px;
+      cursor: pointer;
+      border-radius: 5px;
+      min-width: 110px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    nav .menu a:hover,
+    .dropdown-toggle:hover {
+      background-color: green;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-container {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      z-index: 100;
+    }
+
+    .dropdown-container a {
+      margin: 5px 0;
+      border: 1px solid white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      background-color: transparent;
+      color: white;
+      min-width: 150px;
+      text-align: center;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .dropdown-container a:hover {
+      background-color: green;
+    }
+
+    .error-box {
+      height: calc(100vh - 80px); /* повна висота мінус nav */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(6px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    .error-box h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .error-box p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      max-width: 800px;
+    }
+
+    .error-box button {
+      padding: 16px 32px;
+      font-size: 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .error-box button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">MoviHub</div>
+    <div class="menu">
+      <a href="education.html">Education</a>
+      <a href="Product.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Account</a>
+
+      <div class="dropdown" id="dropdownMenu">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">Other page</a>
+        <div class="dropdown-container" id="dropdownContent">
+          <a href="explore.html">Explore</a>
+          <a href="aboutme.html">About Me</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="error-box">
+    <h1>404 - Page not found</h1>
+    <p>Sorry, but such page does not exist or is temporarily unavailable.</p>
+    <button onclick="window.location.href='index.html'">Back to main page</button>
+  </div>
+
+  <script>
+    function toggleDropdown(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = document.getElementById('dropdownContent');
+      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('dropdownContent');
+      const menu = document.getElementById('dropdownMenu');
+      if (!menu.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

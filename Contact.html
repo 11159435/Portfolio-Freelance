@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('forest.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      font-family: sans-serif;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav .menu {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    nav .menu a,
+    .dropdown-toggle {
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 18px;
+      margin: 0 6px;
+      cursor: pointer;
+      border-radius: 5px;
+      min-width: 110px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    nav .menu a:hover,
+    .dropdown-toggle:hover {
+      background-color: green;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-container {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      z-index: 100;
+    }
+
+    .dropdown-container a {
+      margin: 5px 0;
+      border: 1px solid white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      background-color: transparent;
+      color: white;
+      min-width: 150px;
+      text-align: center;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .dropdown-container a:hover {
+      background-color: green;
+    }
+
+    .contact-page {
+      display: flex;
+      height: calc(100vh - 80px);
+      width: 100%;
+    }
+
+    .left-side {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .right-side {
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .info-box, .time-box, .form-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-box {
+      height: auto;
+      max-width: 100%;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    textarea {
+      width: 95%;
+      height: 300px;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      resize: none;
+    }
+
+    .send-button {
+      margin-top: 20px;
+      padding: 15px;
+      width: 98%;
+      background-color: green;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .send-button:hover {
+      background-color: darkgreen;
+    }
+
+    @media (max-width: 768px) {
+      .contact-page {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left-side, .right-side {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Contact</div>
+    <div class="menu">
+      <a href="index.html">Main</a>
+      <a href="education.html">Education</a>
+      <a href="Product.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Account</a>
+
+      <div class="dropdown" id="dropdownMenu">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">Other page</a>
+        <div class="dropdown-container" id="dropdownContent">
+          <a href="explore.html">Explore</a>
+          <a href="aboutme.html">About Me</a>
+          <a href="Contact.html">Support</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="contact-page">
+    <div class="left-side">
+      <div class="info-box">
+        <h3>Contact Info</h3>
+        <p>Phone Number: +44 077 123 4567</p>
+        <p>Gmail: contact@movihub.com</p>
+        <p>Social Media: @movihub</p>
+        <p>Links: www.movihub.com</p>
+      </div>
+      <div class="time-box">
+        <h3>Works Time</h3>
+        <p>Mon - Fri: 9:00 - 18:00</p>
+        <p>Sat: 10:00 - 16:00</p>
+        <p>Sun: Closed</p>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <div class="form-box">
+        <h2>Contact Now</h2>
+        <form action="https://formsubmit.co/andrianmovithen@gmail.com" method="POST"> 
+          <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+          <button class="send-button" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const dropdown = document.getElementById("dropdownContent");
+      dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+
+</body>
+</html>
