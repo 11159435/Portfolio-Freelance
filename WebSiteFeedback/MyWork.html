@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Work experience– Freelance 3D Designer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-image: url('forest.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav .menu {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .menu a,
+    .dropdown-toggle {
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 18px;
+      margin: 0 6px;
+      cursor: pointer;
+      border-radius: 5px;
+      min-width: 110px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    nav .menu a:hover,
+    .dropdown-toggle:hover {
+      background-color: green;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-container {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      z-index: 100;
+    }
+
+    .dropdown-container a {
+      margin: 5px 0;
+      border: 1px solid white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      background-color: transparent;
+      color: white;
+      min-width: 150px;
+      text-align: center;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .dropdown-container a:hover {
+      background-color: green;
+    }
+
+    .main-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 40px;
+      width: 100%;
+    }
+
+    .unit-content {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      width: 100%;
+      max-width: none;
+      gap: 40px;
+    }
+
+    .photo-block {
+      width: 300px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .photo-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .photo-block h3 {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .unit-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .text-block {
+      border: 1px solid white;
+      padding: 20px;
+      text-align: left;
+      margin-bottom: 20px;
+      width: 100%;
+      background: rgba(22,22,22,0.18);
+      border-radius: 10px;
+      font-size: 1.15em;
+      color: #f4f4f4;
+      line-height: 1.7;
+    }
+
+    .gallery-link {
+      display: inline-block;
+      border: 1px solid white;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      background-color: rgba(56, 54, 54, 0.4);
+      border-radius: 10px;
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .gallery-link:hover {
+      background-color: rgba(16, 94, 14, 0.664);
+      transform: scale(1.05);
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+      .main-wrapper {
+        padding: 12px;
+      }
+      .unit-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 18px;
+        gap: 20px;
+      }
+      .photo-block {
+        margin-bottom: 0;
+      }
+      .unit-info {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .photo-block {
+        width: 95vw;
+      }
+      .text-block {
+        font-size: 1em;
+        padding: 10px;
+      }
+      .unit-content {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">My work experience</div>
+    <div class="menu">
+      <a href="index.html">Main</a>
+      <a href="education.html">Education</a>
+      <a href="Product.html">Products</a>
+      <a href="404.html">Cart</a>
+      <a href="login.html">Account</a>
+      <div class="dropdown" id="dropdownMenu">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">Other page</a>
+        <div class="dropdown-container" id="dropdownContent">
+          <a href="Explore.html">Explore</a>
+          <a href="aboutme.html">About Me</a>
+          <a href="Contact.html">Support</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-wrapper">
+    <div class="unit-content">
+      <div class="photo-block">
+        <img src="job offer deep green.png" alt="3D Design Work">
+        <h3>Freelance 3D Designer</h3>
+      </div>
+      <div class="unit-info">
+        <div class="text-block">
+          <strong>My Freelance Experience – 3D Designer</strong><br><br>
+          My experience as a freelance 3D designer was very valuable and exciting. I worked with various clients on a wide range of tasks: from creating models for games to visualizing interiors and advertising projects.<br><br>
+          One of the biggest advantages of this experience was constant communication with people from all over the world. I learned to express my ideas clearly, listen to clients’ wishes, and explain complex technical points in simple terms. This helped me improve my negotiation skills, resolve conflicts, and reach compromises.<br><br>
+          While working on projects, I mastered many new tools and technologies: I improved my knowledge of Blender, 3ds Max, and other 3D modeling packages, and also learned to quickly adapt to new requirements or changes in a project. I became more organized, learned to plan my time, set realistic deadlines, and stick to them responsibly.<br><br>
+          <b>What skills did I gain?</b> <br>
+          • Professional 3D modeling and visualization<br>
+          • Ability to work with different programs and plugins<br>
+          • Effective communication with clients<br>
+          • Organization of my own work and time management<br>
+          • Solving non-standard tasks and creative approach<br>
+          • Working in a multitasking environment<br>
+          <br>
+          This freelance experience taught me to be flexible, responsible, and always open to new knowledge. I am confident that the experience I have gained will help me in future professional achievements and development.
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = document.getElementById('dropdownContent');
+      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('dropdownContent');
+      const menu = document.getElementById('dropdownMenu');
+      if (!menu.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>

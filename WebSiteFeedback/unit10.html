@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-image: url('forest.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav .menu {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .menu a,
+    .dropdown-toggle {
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 18px;
+      margin: 0 6px;
+      cursor: pointer;
+      border-radius: 5px;
+      min-width: 110px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    nav .menu a:hover,
+    .dropdown-toggle:hover {
+      background-color: green;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-container {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      z-index: 100;
+    }
+
+    .dropdown-container a {
+      margin: 5px 0;
+      border: 1px solid white;
+      padding: 10px 18px;
+      border-radius: 5px;
+      background-color: transparent;
+      color: white;
+      min-width: 150px;
+      text-align: center;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .dropdown-container a:hover {
+      background-color: green;
+    }
+
+    .main-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 40px;
+      width: 100%;
+    }
+
+    .unit-content {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      width: 100%;
+      max-width: none;
+      gap: 40px;
+    }
+
+    .photo-block {
+      width: 300px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .photo-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .photo-block h3 {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .unit-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .text-block {
+      border: 1px solid white;
+      padding: 20px;
+      text-align: left;
+      margin-bottom: 20px;
+      width: 100%;
+      background: rgba(22,22,22,0.18);
+      border-radius: 10px;
+      font-size: 1.15em;
+      color: #f4f4f4;
+      line-height: 1.7;
+    }
+
+    .gallery-link {
+      display: inline-block;
+      border: 1px solid white;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      background-color: rgba(56, 54, 54, 0.4);
+      border-radius: 10px;
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .gallery-link:hover {
+      background-color: rgba(16, 94, 14, 0.664);
+      transform: scale(1.05);
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+      .main-wrapper {
+        padding: 12px;
+      }
+      .unit-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 18px;
+        gap: 20px;
+      }
+      .photo-block {
+        margin-bottom: 0;
+      }
+      .unit-info {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .photo-block {
+        width: 95vw;
+      }
+      .text-block {
+        font-size: 1em;
+        padding: 10px;
+      }
+      .unit-content {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Unit 10</div>
+    <div class="menu">
+      <a href="index.html">Main</a>
+      <a href="education.html">Education</a>
+      <a href="Product.html">Products</a>
+      <a href="404.html">Cart</a>
+      <a href="login.html">Account</a>
+      <div class="dropdown" id="dropdownMenu">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">Other page</a>
+        <div class="dropdown-container" id="dropdownContent">
+          <a href="Explore.html">Explore</a>
+          <a href="aboutme.html">About Me</a>
+          <a href="Contact.html">Support</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-wrapper">
+    <div class="unit-content">
+      <div class="photo-block">
+        <img src="Database.png" alt="Unit Photo">
+        <h3>Unit 10</h3>
+      </div>
+      <div class="unit-info">
+        <div class="text-block">
+          <strong>Unit 10 – Databases</strong><br><br>
+          In this unit, we explored the core principles of designing and building databases from scratch. The course began with an introduction to what databases are, how they are used in the real world, and the differences between flat-file and relational databases. We learned how to plan a database by defining entities, attributes, and relationships, and how to create entity-relationship diagrams (ERDs) to visualize data structures.
+          <br><br>
+          The curriculum covered the process of normalizing data to reduce redundancy and ensure data integrity. We practiced designing tables, setting primary and foreign keys, and establishing one-to-one, one-to-many, and many-to-many relationships. Lessons included writing queries in SQL to retrieve, update, and manipulate data, as well as the use of forms and sub-forms to improve usability for end-users.
+          <br><br>
+          We also looked at real-world applications such as managing customer records, inventory systems, and registration databases. The unit emphasized the importance of backups, data security, and user access controls. We discussed how to test and refine databases for reliability and efficiency.
+          <br><br>
+          <b>Skills gained:</b> I learned to design, build, and manage relational databases; write effective SQL queries; normalize data; and create user-friendly forms. These skills are crucial for organizing, protecting, and retrieving information in both business and personal projects.
+        </div>
+        <a class="gallery-link" href="Unit10Gallery.html">Go to Gallery</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function toggleDropdown(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = document.getElementById('dropdownContent');
+      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    }
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('dropdownContent');
+      const menu = document.getElementById('dropdownMenu');
+      if (!menu.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
